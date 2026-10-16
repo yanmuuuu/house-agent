@@ -1,4 +1,4 @@
-.PHONY: all format lint test tests test_watch integration_tests docker_tests help extended_tests
+.PHONY: all format lint test tests test_watch docker_tests help extended_tests
 
 # Default target executed when no arguments are given to make.
 all: help
@@ -8,9 +8,6 @@ TEST_FILE ?= tests/unit_tests/
 
 test:
 	python -m pytest $(TEST_FILE)
-
-integration_tests:
-	python -m pytest tests/integration_tests 
 
 test_watch:
 	python -m ptw --snapshot-update --now . -- -vv tests/unit_tests
